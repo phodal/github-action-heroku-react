@@ -81,12 +81,7 @@ change `heroku_api_key` & `heroku_app_name` & `heroku_email`  in your `.github/w
           heroku_email: "gmszone@qq.com"
 ```
 
-copy `Token` value to GitHub [Actions secrets](https://github.com/phodal/github-action-heroku/settings/secrets/actions) (replace `phodal/github-action-heroku` to your own repository name)
-
-like: `HEROKU_API_KEY` (should be same with GitHub Actions config)
-
-
-### Generate Token
+### Generate Token to HEROKU_API_KEY
 
 - [install heroku](https://devcenter.heroku.com/articles/heroku-cli)
 - login heroku
@@ -111,3 +106,7 @@ Scope:       global
 Token:       xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than a minute ago)
 ```
+
+copy `Token` value to GitHub [Actions secrets](https://github.com/phodal/github-action-heroku/settings/secrets/actions) (replace `phodal/github-action-heroku` to your own repository name)
+
+like: `HEROKU_API_KEY` (should be same with GitHub Actions config)
