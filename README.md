@@ -80,3 +80,34 @@ change `heroku_api_key` & `heroku_app_name` & `heroku_email`  in your `.github/w
           heroku_app_name: "afs-react" #Must be unique in Heroku
           heroku_email: "gmszone@qq.com"
 ```
+
+copy `Token` value to GitHub [Actions secrets](https://github.com/phodal/github-action-heroku/settings/secrets/actions) (replace `phodal/github-action-heroku` to your own repository name)
+
+like: `HEROKU_API_KEY` (should be same with GitHub Actions config)
+
+
+### Generate Token
+
+- [install heroku](https://devcenter.heroku.com/articles/heroku-cli)
+- login heroku
+
+```
+heroku login
+> note: will open the browser to auth
+```
+- generate the **Token** of the heroku
+```
+heroku authorizations:create
+```
+
+will generate:
+
+```
+Creating OAuth Authorization... done
+Client:      <none>
+ID:          7f750130-8992-47ec-99f5-0c9c66cf68e0
+Description: Long-lived user authorization
+Scope:       global
+Token:       xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than a minute ago)
+```
