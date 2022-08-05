@@ -106,7 +106,3 @@ Scope:       global
 Token:       xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than a minute ago)
 ```
-
-copy `Token` value to GitHub [Actions secrets](https://github.com/phodal/github-action-heroku/settings/secrets/actions) (replace `phodal/github-action-heroku` to your own repository name)
-
-like: `HEROKU_API_KEY` (should be same with GitHub Actions config)
