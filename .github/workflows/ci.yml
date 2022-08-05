@@ -29,4 +29,4 @@ jobs:
           heroku_app_name: "afs-prod" #Must be unique in Heroku
           heroku_email: "gmszone@qq.com"
         env:
-          NODE_ENV: development
+          CI_ENV: development
