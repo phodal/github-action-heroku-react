@@ -83,6 +83,12 @@ change `heroku_api_key` & `heroku_app_name` & `heroku_email`  in your `.github/w
 
 ### Generate Token to HEROKU_API_KEY
 
+#### with Web
+
+[https://dashboard.heroku.com/account/applications/authorizations/new](https://dashboard.heroku.com/account/applications/authorizations/new)
+
+#### or with CLI
+
 - [install heroku](https://devcenter.heroku.com/articles/heroku-cli)
 - login heroku
 
