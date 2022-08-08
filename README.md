@@ -118,7 +118,7 @@ Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than 
 Because Heroku needs a server application, we need to build a simple server application with express.
 
 1. create `Procfile` with custom start command: `web: npm run serve`.
-2. create `package.json` with custom start command: `"serve": "node serve.js"`.
+2. create start command in `package.json` file's `scripts` field with: `"serve": "node serve.js"`.
 3. copy `serve.js` to root of project.
 4. add `express` to your dependencies.
 
