@@ -30,6 +30,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "afs-prod" #Must be unique in Heroku
           heroku_email: "gmszone@qq.com"
-          env_file: ".env.dev"
-        env:
-          NPM_CONFIG_PRODUCTION: true
