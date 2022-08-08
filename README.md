@@ -125,3 +125,8 @@ Because Heroku needs a server application, we need to build a simple server appl
 ```
 npm install --save-dev express
 ```
+
+## Custom Env
+
+1. config NODE_ENV in `package.json`, like `"build": "REACT_APP_ENV=$NODE_ENV react-scripts build",` 
+2. config `NODE_ENV` in Heroku vars or `heroku config:set NODE_ENV=development --app your_appname`
