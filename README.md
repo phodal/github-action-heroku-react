@@ -112,3 +112,16 @@ Scope:       global
 Token:       xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than a minute ago)
 ```
+
+## Production
+
+Because Heroku needs a server application, we need to build a simple server application with express.
+
+1. create `Procfile` with custom start command: `web: npm run serve`.
+2. create `package.json` with custom start command: `"serve": "node serve.js"`.
+3. copy `serve.js` to root of project.
+4. add `express` to your dependencies.
+
+```
+npm install --save-dev express
+```
