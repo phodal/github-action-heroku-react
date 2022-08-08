@@ -19,7 +19,7 @@
   "scripts": {
     "serve": "node serve.js",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_ENV=$NODE_ENV react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
