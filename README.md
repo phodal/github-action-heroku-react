@@ -128,5 +128,6 @@ npm install --save-dev express
 
 ## Custom Env
 
-1. config NODE_ENV in `package.json`, like `"build": "REACT_APP_ENV=$NODE_ENV react-scripts build",` 
-2. config `NODE_ENV` in Heroku vars or `heroku config:set NODE_ENV=development --app your_appname`
+1. config `REACT_APP_ENV` in `package.json`, like `"build": "REACT_APP_ENV=$NODE_ENV react-scripts build"`
+2. config `NODE_ENV`:
+    - by GitHub Action. Add `NODE_ENV: production` in `.github/workflows/ci.yaml` and `.github/workflows/cd.yml`.
