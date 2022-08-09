@@ -115,7 +115,7 @@ Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than 
 
 ## Production
 
-Because Heroku needs a server application, we need to build a simple server application with express.
+For SPA (like React, Vue, Angular), Heroku default to start dev mode. For better performance, Because Heroku needs a server application, we need to build a simple server application with express to host static files.
 
 1. create `Procfile` with custom start command: `web: npm run serve`.
 2. create start command in `package.json` file's `scripts` field with: `"serve": "node serve.js"`.
