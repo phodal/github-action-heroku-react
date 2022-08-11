@@ -13,11 +13,12 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "serve": "^14.0.1",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "serve": "node serve.js",
+    "serve": "serve -s build",
     "start": "react-scripts start",
     "build": "REACT_APP_ENV=$NODE_ENV react-scripts build",
     "test": "react-scripts test",
