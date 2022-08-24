@@ -1,77 +1,8 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
 ## Deploy
 
-change `heroku_api_key` & `heroku_app_name` & `heroku_email`  in your `.github/workflows/cd.yml` to the root of your project:
+change `heroku_api_key` & `heroku_app_name` & `heroku_email`  in your `.github/workflows/cd.yml` to the root of your project, like:
 
 ```
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
@@ -113,21 +44,26 @@ Token:       xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than a minute ago)
 ```
 
-## Production
+### Custom Env variable
 
-For SPA (like React, Vue, Angular), Heroku default to start dev mode. For better performance, Because Heroku needs a server application, we need to build a simple server application with express to host static files.
+1. config `REACT_APP_ENV` in `package.json` under `scripts`, for example:
 
-1. create `Procfile` with custom start command: `web: npm run serve`.
-2. create start command in `package.json` file's `scripts` field with: `"serve": "node serve.js"`.
-3. copy `serve.js` to root of project.
-4. add `express` to your dependencies.
-
+```json
+  "scripts": {
+    "serve": "serve -s build",
+    "start": "react-scripts start",
+-    "build": "react-scripts build",
++    "build": "REACT_APP_ENV=$NODE_ENV react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
 ```
-npm install --save-dev express
+
+2. config by `NODE_ENV`. Add `NODE_ENV` in `.github/workflows/ci.yaml` and `.github/workflows/cd.yml`, for example:
+
+```yaml
+    env:
+      NODE_ENV: production
 ```
 
-## Custom Env
-
-1. config `REACT_APP_ENV` in `package.json`, like `"build": "REACT_APP_ENV=$NODE_ENV react-scripts build"`
-2. config `NODE_ENV`:
-    - by GitHub Action. Add `NODE_ENV: production` in `.github/workflows/ci.yaml` and `.github/workflows/cd.yml`.
+3. then use in code `process.env['REACT_APP_ENV']`
