@@ -48,7 +48,7 @@ Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than 
 
 1. config `REACT_APP_ENV` in `package.json` under `scripts`, for example:
 
-```json
+```diff
   "scripts": {
     "serve": "serve -s build",
     "start": "react-scripts start",
