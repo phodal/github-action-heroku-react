@@ -61,9 +61,13 @@ Updated at:  Fri Aug 05 2022 10:34:53 GMT+0800 (China Standard Time) (less than 
 
 2. config by `NODE_ENV`. Add `NODE_ENV` in `.github/workflows/ci.yaml` and `.github/workflows/cd.yml`, for example:
 
-```yaml
-    env:
-      NODE_ENV: production
+```diff
+  build:
+    runs-on: ubuntu-latest
++    env:
++      NODE_ENV: production
+    steps:
+      - uses: actions/checkout@v2
 ```
 
 3. then use in code `process.env['REACT_APP_ENV']`
